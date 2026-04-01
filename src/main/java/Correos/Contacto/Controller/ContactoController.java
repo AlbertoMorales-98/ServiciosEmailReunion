@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.OffsetDateTime;
-
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/contacto")
@@ -28,9 +26,7 @@ public class ContactoController {
         emailServiceContacto.enviarCorreoHtml(request);
         ApiResponse response = new ApiResponse(
                 HttpStatus.ACCEPTED.value(),
-                "Solicitud de contacto recibida y procesada.",
-                "/api/contacto",
-                OffsetDateTime.now()
+                "Solicitud de contacto recibida y procesada."
         );
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
     }

@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.OffsetDateTime;
-
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/reuniones")
@@ -28,9 +26,7 @@ public class MeetingController {
         emailServiceReunion.sendMeetingRequest(request);
         ApiResponse response = new ApiResponse(
                 HttpStatus.ACCEPTED.value(),
-                "Solicitud de reunion recibida y procesada.",
-                "/api/reuniones",
-                OffsetDateTime.now()
+                "Solicitud de reunion recibida y procesada."
         );
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
     }
