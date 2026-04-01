@@ -1,9 +1,9 @@
-package org.example.api;
+package Correos.Reunion.api;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.example.api.dto.MeetingRequest;
-import org.example.service.EmailService;
+import Correos.Reunion.api.dto.MeetingRequest;
+import Correos.Reunion.service.EmailServiceReunion;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class MeetingController {
 
-    private final EmailService emailService;
+    private final EmailServiceReunion emailServiceReunion;
 
     @PostMapping
     public ResponseEntity<String> create(@Valid @RequestBody MeetingRequest request) {
-        emailService.sendMeetingRequest(request);
+        emailServiceReunion.sendMeetingRequest(request);
         return ResponseEntity.accepted().body("Solicitud recibida, se enviará un correo con los datos.");
     }
 }

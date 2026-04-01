@@ -1,8 +1,8 @@
-package org.example.service;
+package Correos.Reunion.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.api.dto.MeetingRequest;
+import Correos.Reunion.api.dto.MeetingRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class EmailService {
+public class EmailServiceReunion {
 
     private final JavaMailSender mailSender;
 

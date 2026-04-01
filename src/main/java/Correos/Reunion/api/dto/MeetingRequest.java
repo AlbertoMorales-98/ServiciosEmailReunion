@@ -1,4 +1,4 @@
-package org.example.api.dto;
+package Correos.Reunion.api.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

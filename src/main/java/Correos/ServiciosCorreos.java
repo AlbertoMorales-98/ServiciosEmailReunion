@@ -1,12 +1,12 @@
-package org.example;
+package Correos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class FormularioDprReunionApplication {
+@SpringBootApplication(scanBasePackages = "Correos")
+public class ServiciosCorreos {
 
     public static void main(String[] args) {
-        SpringApplication.run(FormularioDprReunionApplication.class, args);
+        SpringApplication.run(ServiciosCorreos.class, args);
     }
 }
