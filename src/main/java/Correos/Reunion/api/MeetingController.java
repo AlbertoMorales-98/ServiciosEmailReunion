@@ -5,7 +5,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import Correos.Reunion.api.dto.MeetingRequest;
 import Correos.Reunion.service.EmailServiceReunion;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,10 +23,6 @@ public class MeetingController {
     @PostMapping
     public ResponseEntity<ApiResponse> create(@Valid @RequestBody MeetingRequest request) {
         emailServiceReunion.sendMeetingRequest(request);
-        ApiResponse response = new ApiResponse(
-                HttpStatus.ACCEPTED.value(),
-                "Solicitud de reunion recibida y procesada."
-        );
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
+        return ResponseEntity.ok(new ApiResponse(200, "OK", "La peticion fue exitosa"));
     }
 }

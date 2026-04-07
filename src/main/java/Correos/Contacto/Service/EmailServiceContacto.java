@@ -1,6 +1,7 @@
 package Correos.Contacto.Service;
 
 import Correos.Contacto.Request.ContactoRequest;
+import Correos.api.exception.InternalServerErrorException;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -45,7 +46,7 @@ public class EmailServiceContacto {
             helper.setText(html, true);
             mailSender.send(message);
         } catch (MessagingException | MailException e) {
-            throw new IllegalStateException("No se pudo enviar el correo de contacto.", e);
+            throw new InternalServerErrorException(e);
         }
     }
 

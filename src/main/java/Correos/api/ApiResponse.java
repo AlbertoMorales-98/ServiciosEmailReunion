@@ -1,7 +1,8 @@
 package Correos.api;
 
 public record ApiResponse(
-        int status,
+        int codigo,
+        String status,
         String message
 ) {
 }

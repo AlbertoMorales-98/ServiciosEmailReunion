@@ -5,7 +5,6 @@ import Correos.Contacto.Service.EmailServiceContacto;
 import Correos.api.ApiResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,10 +23,6 @@ public class ContactoController {
     @PostMapping
     public ResponseEntity<ApiResponse> enviar(@Valid @RequestBody ContactoRequest request) {
         emailServiceContacto.enviarCorreoHtml(request);
-        ApiResponse response = new ApiResponse(
-                HttpStatus.ACCEPTED.value(),
-                "Solicitud de contacto recibida y procesada."
-        );
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
+        return ResponseEntity.ok(new ApiResponse(200, "OK", "La peticion fue exitosa"));
     }
 }

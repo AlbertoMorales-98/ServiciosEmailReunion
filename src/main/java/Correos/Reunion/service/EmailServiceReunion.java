@@ -1,5 +1,6 @@
 package Correos.Reunion.service;
 
+import Correos.api.exception.InternalServerErrorException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import Correos.Reunion.api.dto.MeetingRequest;
@@ -41,7 +42,7 @@ public class EmailServiceReunion {
             log.info("Correo enviado correctamente a {} para {}", defaultRecipient, request.getNombre());
         } catch (MessagingException | MailException e) {
             log.error("Error al enviar correo de reunión", e);
-            throw new IllegalStateException("No se pudo enviar el correo", e);
+            throw new InternalServerErrorException(e);
         }
     }
 
