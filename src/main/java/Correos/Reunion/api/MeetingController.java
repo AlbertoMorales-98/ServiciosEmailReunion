@@ -23,6 +23,6 @@ public class MeetingController {
     @PostMapping
     public ResponseEntity<ApiResponse> create(@Valid @RequestBody MeetingRequest request) {
         emailServiceReunion.sendMeetingRequest(request);
-        return ResponseEntity.ok(new ApiResponse(200, "OK", "La peticion fue exitosa"));
+        return ResponseEntity.ok(new ApiResponse(200, "La peticion fue exitosa"));
     }
 }

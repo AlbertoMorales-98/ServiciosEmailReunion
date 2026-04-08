@@ -2,15 +2,14 @@ package Correos.api.exception;
 
 public class UnprocessableEntityException extends ApiBusinessException {
 
-    private static final int CODIGO = 422;
-    private static final String NOMBRE = "Unprocessable Entity";
-    private static final String DESCRIPCION = "Error de validacion de datos";
+    private static final int STATUS = 422;
+    private static final String MESSAGE = "Error de validacion de datos";
 
     public UnprocessableEntityException() {
-        super(CODIGO, NOMBRE, DESCRIPCION);
+        super(STATUS, MESSAGE);
     }
 
     public UnprocessableEntityException(Throwable cause) {
-        super(CODIGO, NOMBRE, DESCRIPCION, cause);
+        super(STATUS, MESSAGE, cause);
     }
 }

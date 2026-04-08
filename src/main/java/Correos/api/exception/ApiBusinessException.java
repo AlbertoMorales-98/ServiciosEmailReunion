@@ -4,29 +4,26 @@ import Correos.api.ApiResponse;
 
 public abstract class ApiBusinessException extends RuntimeException {
 
-    private final int codigo;
-    private final String nombre;
-    private final String descripcion;
+    private final int status;
+    private final String message;
 
-    protected ApiBusinessException(int codigo, String nombre, String descripcion) {
-        super(nombre);
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+    protected ApiBusinessException(int status, String message) {
+        super(String.valueOf(status));
+        this.status = status;
+        this.message = message;
     }
 
-    protected ApiBusinessException(int codigo, String nombre, String descripcion, Throwable cause) {
-        super(nombre, cause);
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+    protected ApiBusinessException(int status, String message, Throwable cause) {
+        super(String.valueOf(status), cause);
+        this.status = status;
+        this.message = message;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getStatus() {
+        return status;
     }
 
     public ApiResponse toResponse() {
-        return new ApiResponse(codigo, nombre, descripcion);
+        return new ApiResponse(status, message);
     }
 }

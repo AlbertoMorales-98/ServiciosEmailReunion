@@ -23,6 +23,6 @@ public class ContactoController {
     @PostMapping
     public ResponseEntity<ApiResponse> enviar(@Valid @RequestBody ContactoRequest request) {
         emailServiceContacto.enviarCorreoHtml(request);
-        return ResponseEntity.ok(new ApiResponse(200, "OK", "La peticion fue exitosa"));
+        return ResponseEntity.ok(new ApiResponse(200, "La peticion fue exitosa"));
     }
 }

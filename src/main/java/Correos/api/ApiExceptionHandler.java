@@ -7,7 +7,6 @@ import Correos.api.exception.MethodNotAllowedException;
 import Correos.api.exception.NotFoundException;
 import Correos.api.exception.UnprocessableEntityException;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -21,7 +20,7 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(ApiBusinessException.class)
     public ResponseEntity<ApiResponse> handleBusiness(ApiBusinessException ex, HttpServletRequest request) {
-        return ResponseEntity.status(ex.getCodigo()).body(ex.toResponse());
+        return ResponseEntity.status(ex.getStatus()).body(ex.toResponse());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
